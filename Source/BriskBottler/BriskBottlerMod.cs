@@ -19,8 +19,8 @@ namespace BriskBottler
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.BRISKBOTTLER.DESC", "This Bottler station has access to: {Liquids");
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.BRISKBOTTLER.EFFECT", "Liquid Available: {Liquids}");
 
-                List<string> oxygenBuildings = new List<string>((string[])BUILDINGS.PLANORDER[5].data) { BriskBottlerConfig.ID };
-				BUILDINGS.PLANORDER[5].data = oxygenBuildings.ToArray();
+                List<string> oxygenBuildings = new List<string>((string[])BUILDINGS.PLANORDER[4].data) { BriskBottlerConfig.ID };
+				BUILDINGS.PLANORDER[4].data = oxygenBuildings.ToArray();
                 BUILDINGS.COMPONENT_DESCRIPTION_ORDER.Add(BriskBottlerConfig.ID);
 			}
 
