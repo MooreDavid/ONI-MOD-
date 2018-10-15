@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Database;
 using Harmony;
 using KSerialization;
@@ -19,9 +20,10 @@ namespace BriskArctic
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.ARCTIC.DESC", "This Cools down the Area");
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.ARCTIC.EFFECT", "Uses Hydrogen and a bit of Power to cool down the air.");
 
-				List<string> oxygenBuildings = new List<string>((string[]) BUILDINGS.PLANORDER[10].data) {BriskArcticConfig.ID};
-				BUILDINGS.PLANORDER[10].data = oxygenBuildings.ToArray();
-				BUILDINGS.COMPONENT_DESCRIPTION_ORDER.Add(BriskArcticConfig.ID);
+
+                List<string> category = (List<string>)BUILDINGS.PLANORDER.First(po => po.category == PlanScreen.PlanCategory.Utilities).data;
+                category.Add(BriskArcticConfig.ID);
+
 			}
 
 			private static void Postfix()

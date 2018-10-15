@@ -56,7 +56,7 @@ namespace BriskArctic
             ElementConverter elementConverter = go.AddOrGet<ElementConverter>();
             elementConverter.outputElements = new ElementConverter.OutputElement[] { };
             BuildingTemplates.DoPostConfigure(go);
-            go.GetComponent<KPrefabID>().prefabInitFn += (KPrefabID.PrefabFn)(game_object => new PoweredActiveController.Instance((IStateMachineTarget)game_object.GetComponent<KPrefabID>()).StartSM());
+            go.AddOrGetDef<PoweredActiveController.Def>();
         }
 	}
 }
