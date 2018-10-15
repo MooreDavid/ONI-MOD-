@@ -35,7 +35,7 @@ public class BriskBottlerConfig : IBuildingConfig
         defaultStorage.storageFilters = STORAGEFILTERS.LIQUIDS;
         defaultStorage.capacityKg = 100f;
         defaultStorage.SetDefaultStoredItemModifiers(Storage.StandardSealedStorage);
-        defaultStorage.allowItemRemoval = false;
+        defaultStorage.allowItemRemoval = true;
         go.AddOrGet<DropAllWorkable>();
         GasBottler gasBottler = go.AddOrGet<GasBottler>();
         gasBottler.storage = defaultStorage;
