@@ -9,7 +9,6 @@ using TUNING;
 public class RubberBootsConfig : IEquipmentConfig
 {
 
-
   public const string ID = "RUBBERBOOTS";
   public const int decorMod = 10;
 
