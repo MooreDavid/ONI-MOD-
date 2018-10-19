@@ -11,7 +11,6 @@ public class BackPackConfig : IEquipmentConfig
     public const string Recipe_Desc = "Adds a clean 100kg to the dupe"; 
     public const int decorMod = 0;
     public const float CarryAmount = 100f;
-    public float stressModificationValue;
 
     public EquipmentDef CreateEquipmentDef()
     {

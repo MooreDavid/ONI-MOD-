@@ -10,7 +10,7 @@ public class SlicksterShoesConfig : IEquipmentConfig
     public const string ID = "SlicksterShoes";
     public const string Recipe_Desc = "Faster running speed"; 
     public const int decorMod = 2;
-    public const float CarryAmount = 50f;
+    public const float CarryAmount = 10f;
     public float stressModificationValue;
 
     public EquipmentDef CreateEquipmentDef()
