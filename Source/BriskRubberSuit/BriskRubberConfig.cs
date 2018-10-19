@@ -9,7 +9,6 @@ using TUNING;
 public class RubberBootsConfig : IEquipmentConfig
 {
 
-
   public const string ID = "RUBBERBOOTS";
   public const int decorMod = 10;
 
@@ -27,8 +26,6 @@ public class RubberBootsConfig : IEquipmentConfig
     equipmentDef1.additionalDescriptors.Add(descriptor2);
     equipmentDef1.EffectImmunites.Add(Db.Get().effects.Get("SoakingWet"));
     equipmentDef1.EffectImmunites.Add(Db.Get().effects.Get("WetFeet"));
-    equipmentDef1.EffectImmunites.Add(Db.Get().effects.Get("COLD"));
-    equipmentDef1.EffectImmunites.Add(Db.Get().effects.Get("HOT"));
     equipmentDef1.OnEquipCallBack = (System.Action<Equippable>) (eq => CoolVestConfig.OnEquipVest(eq, clothingInfo));
     equipmentDef1.RecipeDescription = (string) STRINGS.EQUIPMENT.PREFABS.FUNKY_VEST.RECIPE_DESC;
     return equipmentDef1;
