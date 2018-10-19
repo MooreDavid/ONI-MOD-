@@ -5,8 +5,14 @@ using UnityEngine;
 
 public class BriskAirWickConfig : IBuildingConfig
 
+
     
 {
+
+    private static readonly LogicPorts.Port[] INPUT_PORTS = new LogicPorts.Port[1]
+      {
+       LogicPorts.Port.InputPort(LogicOperationalController.PORT_ID, new CellOffset(0, 0), UI.LOGIC_PORTS.CONTROL_OPERATIONAL, false)
+      };
     public const string ID = "BRISKAIRWICK";
 
     public override BuildingDef CreateBuildingDef()
@@ -69,9 +75,22 @@ public class BriskAirWickConfig : IBuildingConfig
         Prioritizable.AddRef(go);
     }
 
+        public override void DoPostConfigurePreview(BuildingDef def, GameObject go)
+         {
+          GeneratedBuildings.RegisterLogicPorts(go, BriskAirWickConfig.INPUT_PORTS);
+        }
+
+          public override void DoPostConfigureUnderConstruction(GameObject go)
+         {
+           GeneratedBuildings.RegisterLogicPorts(go, BriskAirWickConfig.INPUT_PORTS);
+         }
+
     public override void DoPostConfigureComplete(GameObject go)
     {
-        BuildingTemplates.DoPostConfigure(go);
-        go.GetComponent<KPrefabID>().prefabInitFn += (KPrefabID.PrefabFn)(game_object => new PoweredActiveController.Instance((IStateMachineTarget)game_object.GetComponent<KPrefabID>()).StartSM());
+            GeneratedBuildings.RegisterLogicPorts(go, BriskAirWickConfig.INPUT_PORTS);
+            go.AddOrGet<LogicOperationalController>();
+            go.AddOrGetDef<PoweredActiveController.Def>();
+            BuildingTemplates.DoPostConfigure(go);
+
     }
 }
