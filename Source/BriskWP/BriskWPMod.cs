@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Database;
 using Harmony;
 using KSerialization;
@@ -19,9 +20,9 @@ namespace BriskWP
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.LIQUIDPERMEABLEMRMBRANE.DESC", "Building with Waterflow permeable tiles promotes better liquid circulation within a colony");
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.LIQUIDPERMEABLEMRMBRANE.EFFECT", "Used as floor and wall tile to build rooms.\n\nBlocks " + UI.FormatAsLink("Gas", "ELEMENTS_GAS") + " flow without obstructing " + UI.FormatAsLink("Liquid", "ELEMENTS_LIQUID") + ".");
 
-                List<string> oxygenBuildings = new List<string>((string[])BUILDINGS.PLANORDER[0].data) { LIQUIDPERMEABLEMRMBRANEConfig.ID };
-				BUILDINGS.PLANORDER[0].data = oxygenBuildings.ToArray();
-                BUILDINGS.COMPONENT_DESCRIPTION_ORDER.Add(LIQUIDPERMEABLEMRMBRANEConfig.ID);
+                List<string> category = (List<string>)BUILDINGS.PLANORDER.First(po => po.category == PlanScreen.PlanCategory.Base).data;
+                category.Add(LIQUIDPERMEABLEMRMBRANEConfig.ID);
+
 			}
 
 			private static void Postfix()
