@@ -1,11 +1,16 @@
 ﻿using System.Collections.Generic;
 using TUNING;
+using STRINGS;
 using UnityEngine;
 
 namespace BriskArctic
 {
 	public class BriskArcticConfig : IBuildingConfig
 	{
+        private static readonly LogicPorts.Port[] INPUT_PORTS = new LogicPorts.Port[1]
+         {
+          LogicPorts.Port.InputPort(LogicOperationalController.PORT_ID, new CellOffset(1, 0), UI.LOGIC_PORTS.CONTROL_OPERATIONAL, false)
+         };
         public const string ID = "ARCTIC";
 
 		public override BuildingDef CreateBuildingDef()
@@ -38,6 +43,7 @@ namespace BriskArctic
         public override void DoPostConfigureComplete(GameObject go)
         {
             go.AddOrGet<Storage>().capacityKg = 0.09999999f;
+            go.AddOrGet<MassiveHeatSink>();
             go.AddOrGet<MinimumOperatingTemperature>().minimumTemperature = 120f;
             PrimaryElement component = go.GetComponent<PrimaryElement>();
             component.SetElement(SimHashes.Iron);
@@ -55,8 +61,22 @@ namespace BriskArctic
              };
             ElementConverter elementConverter = go.AddOrGet<ElementConverter>();
             elementConverter.outputElements = new ElementConverter.OutputElement[] { };
-            BuildingTemplates.DoPostConfigure(go);
-            go.GetComponent<KPrefabID>().prefabInitFn += (KPrefabID.PrefabFn)(game_object => new PoweredActiveController.Instance((IStateMachineTarget)game_object.GetComponent<KPrefabID>()).StartSM());
+            GeneratedBuildings.RegisterLogicPorts(go, BriskArcticConfig.INPUT_PORTS);
+            go.AddOrGet<LogicOperationalController>();
+            go.AddOrGetDef<PoweredActiveController.Def>();
+
         }
+              public override void DoPostConfigurePreview(BuildingDef def, GameObject go)
+         {
+          GeneratedBuildings.RegisterLogicPorts(go, BriskArcticConfig.INPUT_PORTS);
+        }
+
+          public override void DoPostConfigureUnderConstruction(GameObject go)
+         {
+           GeneratedBuildings.RegisterLogicPorts(go, BriskArcticConfig.INPUT_PORTS);
+         }
+
+
+      }
 	}
-}
+
