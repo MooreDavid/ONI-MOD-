@@ -35,6 +35,16 @@ namespace BriskBackPack
                 Strings.Add("STRINGS.EQUIPMENT.PREFABS.SLICKSTERSHOES.GENERICNAME", "SlicksterShoes");
                 Strings.Add("STRINGS.EQUIPMENT.PREFABS.SLICKSTERSHOES.EFFECT", "Faster running speed");
                 Strings.Add("STRINGS.EQUIPMENT.PREFABS.SLICKSTERSHOES.DESC", "Faster running speed");
+
+                Strings.Add("STRINGS.EQUIPMENT.PREFABS.REBREATHER.NAME", "Oxygen Sack");
+                Strings.Add("STRINGS.EQUIPMENT.PREFABS.REBREATHER.GENERICNAME", "Oxygen Sack");
+                Strings.Add("STRINGS.EQUIPMENT.PREFABS.REBREATHER.EFFECT", "Expands the breath of the Dupe");
+                Strings.Add("STRINGS.EQUIPMENT.PREFABS.REBREATHER.DESC", "Expands the breath of the Dupe");
+
+                Strings.Add("STRINGS.EQUIPMENT.PREFABS.ONEPACK.NAME", "IPack");
+                Strings.Add("STRINGS.EQUIPMENT.PREFABS.ONEPACK.GENERICNAME", "IPack");
+                Strings.Add("STRINGS.EQUIPMENT.PREFABS.ONEPACK.EFFECT", "An all in one pack");
+                Strings.Add("STRINGS.EQUIPMENT.PREFABS.ONEPACK.DESC", "An all in one pack");
             }
 
             private static void Postfix()
@@ -50,8 +60,14 @@ namespace BriskBackPack
 
                 object obj3 = Activator.CreateInstance(typeof(SlicksterShoesConfig));
                 EquipmentConfigManager.Instance.RegisterEquipment(obj3 as IEquipmentConfig);
+
+                object obj4 = Activator.CreateInstance(typeof(ReBreatherConfig));
+                EquipmentConfigManager.Instance.RegisterEquipment(obj4 as IEquipmentConfig);
+
+                object obj5 = Activator.CreateInstance(typeof(OnePackConfig));
+                EquipmentConfigManager.Instance.RegisterEquipment(obj5 as IEquipmentConfig);
             }
-        }
+        } 
 
     }
 }

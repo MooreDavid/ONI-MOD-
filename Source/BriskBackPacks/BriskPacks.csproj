@@ -56,7 +56,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReBreatherConfig.cs" />
     <Compile Include="SlicksterShoesConfig.cs" />
+    <Compile Include="OnePackConfig.cs" />
     <Compile Include="StressPackConfig.cs" />
     <Compile Include="LightPackConfig.cs" />
     <Compile Include="BackPackMod.cs" />
