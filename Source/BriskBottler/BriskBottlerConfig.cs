@@ -33,7 +33,7 @@ public class BriskBottlerConfig : IBuildingConfig
         Storage defaultStorage = BuildingTemplates.CreateDefaultStorage(go, false);
         defaultStorage.showDescriptor = true;
         defaultStorage.storageFilters = STORAGEFILTERS.LIQUIDS;
-        defaultStorage.capacityKg = 100f;
+        defaultStorage.capacityKg = 2500f;
         defaultStorage.SetDefaultStoredItemModifiers(Storage.StandardSealedStorage);
         defaultStorage.allowItemRemoval = true;
         go.AddOrGet<DropAllWorkable>();
