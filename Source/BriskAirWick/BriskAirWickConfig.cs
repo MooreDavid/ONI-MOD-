@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using TUNING;
 using UnityEngine;
 
-public class BriskAirWickConfig : IBuildingConfig
-
-
-    
+public class BriskAirWickConfig : IBuildingConfig   
 {
 
     private static readonly LogicPorts.Port[] INPUT_PORTS = new LogicPorts.Port[1]
@@ -56,8 +53,9 @@ public class BriskAirWickConfig : IBuildingConfig
         ManualDeliveryKG manualDeliveryKg1 = go.AddOrGet<ManualDeliveryKG>();
         manualDeliveryKg1.SetStorage(storage1);
         manualDeliveryKg1.requestedItemTag = "BasicFabric";
-        manualDeliveryKg1.capacity = 10f;
+        manualDeliveryKg1.capacity = 2f;
         manualDeliveryKg1.refillMass = 1f;
+        manualDeliveryKg1.minimumMass = 1f;
         manualDeliveryKg1.choreTypeIDHash = Db.Get().ChoreTypes.OperateFetch.IdHash;
         go.AddOrGet<WaterPurifier>();
 
