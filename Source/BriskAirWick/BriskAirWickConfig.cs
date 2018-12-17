@@ -29,7 +29,7 @@ public class BriskAirWickConfig : IBuildingConfig
         buildingDef.InputConduitType = ConduitType.Liquid;
         buildingDef.RequiresPowerInput = true;
         buildingDef.EnergyConsumptionWhenActive = 2f;
-        buildingDef.ViewMode = SimViewMode.LiquidVentMap;
+        buildingDef.ViewMode = OverlayModes.LiquidConduits.ID;
         buildingDef.AudioCategory = "Metal";
         buildingDef.UtilityInputOffset = new CellOffset(0, 0);
         buildingDef.UtilityOutputOffset = new CellOffset(0, 0);

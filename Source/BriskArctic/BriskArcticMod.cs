@@ -21,7 +21,7 @@ namespace BriskArctic
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.ARCTIC.EFFECT", "Uses Hydrogen and a bit of Power to cool down the air.");
 
 
-                List<string> category = (List<string>)BUILDINGS.PLANORDER.First(po => po.category == PlanScreen.PlanCategory.Utilities).data;
+                List<string> category = (List<string>)BUILDINGS.PLANORDER.First(po => po.category == new HashedString("Utilities")).data;
                 category.Add(BriskArcticConfig.ID);
 
 			}
@@ -38,8 +38,9 @@ namespace BriskArctic
 		{
 			private static void Prefix()
 			{
-                List<string> ls = new List<string>(Techs.TECH_GROUPING["TemperatureModulation"]) { BriskArcticConfig.ID };
-                Techs.TECH_GROUPING["TemperatureModulation"] = ls.ToArray();
+                List<string> ls = new List<string>((string[])Database.Techs.TECH_GROUPING["TemperatureModulation"]);
+                ls.Add(BriskArcticConfig.ID);
+                Techs.TECH_GROUPING["TemperatureModulation"] = (string[])ls.ToArray();
 			}
 		}
 

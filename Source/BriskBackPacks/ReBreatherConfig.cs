@@ -21,7 +21,7 @@ public class ReBreatherConfig : IEquipmentConfig
          new AttributeModifier(Db.Get().Amounts.Breath.maxAttribute.Id, (float) CarryAmount, (string) BackPackConfig.ID, false, false, true),
         };
         ClothingWearer.ClothingInfo clothingInfo = new ClothingWearer.ClothingInfo((string) ID, decorMod, 0f, 0f);
-        EquipmentDef equipmentDef1 = EquipmentTemplates.CreateEquipmentDef("ReBreather", TUNING.EQUIPMENT.TOOLS.TOOLSLOT, TUNING.EQUIPMENT.VESTS.FABRICATOR, TUNING.EQUIPMENT.VESTS.FUNKY_VEST_FABTIME, SimHashes.Carbon, InputElementMassMap, (float)TUNING.EQUIPMENT.VESTS.FUNKY_VEST_MASS, "rotfood_kanim", (string)null, "rotfood_kanim", 4, AttributeModifiers, (string)null, true, EntityTemplates.CollisionShape.RECTANGLE, 0.75f, 0.4f, (Tag[])null);
+        EquipmentDef equipmentDef1 = EquipmentTemplates.CreateEquipmentDef("ReBreather", TUNING.EQUIPMENT.TOOLS.TOOLSLOT, SimHashes.Carbon, (float)TUNING.EQUIPMENT.VESTS.FUNKY_VEST_MASS, "rotfood_kanim", (string)null, "rotfood_kanim", 4, AttributeModifiers, (string)null, true, EntityTemplates.CollisionShape.RECTANGLE, 0.75f, 0.4f, (Tag[])null);
         equipmentDef1.OnEquipCallBack = (System.Action<Equippable>)(eq => CoolVestConfig.OnEquipVest(eq, clothingInfo));
         equipmentDef1.RecipeDescription = Recipe_Desc;
         return equipmentDef1;

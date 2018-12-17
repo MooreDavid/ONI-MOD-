@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Database;
 using Harmony;
-using KSerialization;
 using STRINGS;
 using BUILDINGS = TUNING.BUILDINGS;
 
@@ -20,7 +19,7 @@ namespace BriskWP
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.LIQUIDPERMEABLEMRMBRANE.DESC", "Building with Waterflow permeable tiles promotes better liquid circulation within a colony");
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.LIQUIDPERMEABLEMRMBRANE.EFFECT", "Used as floor and wall tile to build rooms.\n\nBlocks " + UI.FormatAsLink("Gas", "ELEMENTS_GAS") + " flow without obstructing " + UI.FormatAsLink("Liquid", "ELEMENTS_LIQUID") + ".");
 
-                List<string> category = (List<string>)BUILDINGS.PLANORDER.First(po => po.category == PlanScreen.PlanCategory.Base).data;
+                List<string> category = (List<string>)BUILDINGS.PLANORDER.First(po => po.category == new HashedString("Base")).data;
                 category.Add(LIQUIDPERMEABLEMRMBRANEConfig.ID);
 
 			}
@@ -37,8 +36,9 @@ namespace BriskWP
 		{
 			private static void Prefix()
 			{
-                List<string> ls = new List<string>(Techs.TECH_GROUPING["PressureManagement"]) { LIQUIDPERMEABLEMRMBRANEConfig.ID };
-                Techs.TECH_GROUPING["PressureManagement"] = ls.ToArray();
+                List<string> ls = new List<string>((string[])Database.Techs.TECH_GROUPING["PressureManagement"]);
+                ls.Add(LIQUIDPERMEABLEMRMBRANEConfig.ID);
+                Techs.TECH_GROUPING["PressureManagement"] = (string[])ls.ToArray();
 			}
 		}
 

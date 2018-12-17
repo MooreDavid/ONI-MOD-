@@ -21,7 +21,23 @@ public class BackPackConfig : IEquipmentConfig
         {
          new AttributeModifier(Db.Get().Attributes.CarryAmount.Id, (float) BackPackConfig.CarryAmount, (string) BackPackConfig.ID, true, false, true),
         };
-        EquipmentDef equipmentDef1 = EquipmentTemplates.CreateEquipmentDef("BackPack", TUNING.EQUIPMENT.TOOLS.TOOLSLOT, TUNING.EQUIPMENT.VESTS.FABRICATOR, TUNING.EQUIPMENT.VESTS.FUNKY_VEST_FABTIME, SimHashes.Carbon, InputElementMassMap, (float)TUNING.EQUIPMENT.VESTS.FUNKY_VEST_MASS, "vacillator_charge_kanim", (string)null, "vacillator_charge_kanim", 4, AttributeModifiers, (string)null, true, EntityTemplates.CollisionShape.RECTANGLE, 0.75f, 0.4f, (Tag[])null);
+        EquipmentDef equipmentDef1 = EquipmentTemplates.CreateEquipmentDef(
+            Id: "BackPack",
+            Slot: TUNING.EQUIPMENT.TOOLS.TOOLSLOT,
+            OutputElement: SimHashes.Carbon,
+            Mass: TUNING.EQUIPMENT.VESTS.FUNKY_VEST_MASS,
+            Anim: "vacillator_charge_kanim",
+            SnapOn: (string)null,
+            BuildOverride: "vacillator_charge_kanim",
+            BuildOverridePriority: 4,
+            AttributeModifiers: AttributeModifiers,
+            SnapOn1: (string)null,
+            IsBody: true,
+            CollisionShape: EntityTemplates.CollisionShape.RECTANGLE,
+            width: 0.75f,
+            height: 0.4f,
+            additional_tags: (Tag[])null);
+
         equipmentDef1.OnEquipCallBack = (System.Action<Equippable>)(eq => CoolVestConfig.OnEquipVest(eq, clothingInfo));
         equipmentDef1.RecipeDescription = Recipe_Desc;
 

@@ -34,7 +34,7 @@ namespace BriskArctic
             buildingDef.Floodable = false;
             buildingDef.Entombable = false;
             buildingDef.AudioCategory = "Metal";
-            buildingDef.ViewMode = SimViewMode.PowerMap;
+            buildingDef.ViewMode = OverlayModes.Power.ID;
             buildingDef.InputConduitType = ConduitType.Gas;
             buildingDef.UtilityInputOffset = new CellOffset(0, 0);
             return buildingDef;

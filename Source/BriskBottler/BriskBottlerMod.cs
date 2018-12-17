@@ -20,7 +20,7 @@ namespace BriskBottler
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.BRISKBOTTLER.DESC", "This Bottler station has access to: {Liquids");
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.BRISKBOTTLER.EFFECT", "Liquid Available: {Liquids}");
 
-                List<string> category = (List<string>)BUILDINGS.PLANORDER.First(po => po.category == PlanScreen.PlanCategory.Plumbing).data;
+                List<string> category = (List<string>)BUILDINGS.PLANORDER.First(po => po.category == new HashedString("Plumbing")).data;
                 category.Add(BriskBottlerConfig.ID);
 			}
 
@@ -36,8 +36,9 @@ namespace BriskBottler
 		{
 			private static void Prefix()
 			{
-                List<string> ls = new List<string>(Techs.TECH_GROUPING["ImprovedLiquidPiping"]) { BriskBottlerConfig.ID };
-                Techs.TECH_GROUPING["ImprovedLiquidPiping"] = ls.ToArray();
+                List<string> ls = new List<string>((string[])Database.Techs.TECH_GROUPING["ImprovedLiquidPiping"]);
+                ls.Add(BriskBottlerConfig.ID);
+                Techs.TECH_GROUPING["ImprovedLiquidPiping"] = (string[])ls.ToArray();
 			}
 		}
 

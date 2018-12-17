@@ -22,7 +22,7 @@ namespace BriskDupeFab
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.DUPEFABRICATOR.DESC", "This allows you to rip the life of the dupes to help your colony");
                 Strings.Add("STRINGS.BUILDINGS.PREFABS.DUPEFABRICATOR.EFFECT", "This allows you to rip the life of the dupes to help your colony");
 
-                List<string> category = (List<string>)BUILDINGS.PLANORDER.First(po => po.category == PlanScreen.PlanCategory.Refining).data;
+                List<string> category = (List<string>)BUILDINGS.PLANORDER.First(po => po.category == new HashedString("Refining")).data;
                 category.Add(BriskDupeFabConfig.ID);
 			}
 
@@ -38,8 +38,9 @@ namespace BriskDupeFab
 		{
 			private static void Prefix()
 			{
-                List<string> ls = new List<string>(Techs.TECH_GROUPING["AdvancedResearch"]) { BriskDupeFabConfig.ID };
-                Techs.TECH_GROUPING["AdvancedResearch"] = ls.ToArray();
+                List<string> ls = new List<string>((string[])Database.Techs.TECH_GROUPING["AdvancedResearch"]);
+                ls.Add(BriskDupeFabConfig.ID);
+                Techs.TECH_GROUPING["AdvancedResearch"] = (string[])ls.ToArray();
 			}
 		}
 

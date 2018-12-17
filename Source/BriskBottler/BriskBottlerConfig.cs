@@ -22,7 +22,7 @@ public class BriskBottlerConfig : IBuildingConfig
         EffectorValues tieR0 = NOISE_POLLUTION.NOISY.TIER0;
         BuildingDef buildingDef = BuildingTemplates.CreateBuildingDef(id, width, height, anim, hitpoints, construction_time, tieR4, rawMetals, melting_point, build_location_rule, TUNING.BUILDINGS.DECOR.BONUS.TIER1, tieR0, 0.2f);
         buildingDef.InputConduitType = ConduitType.Liquid;
-        buildingDef.ViewMode = SimViewMode.LiquidVentMap;
+        buildingDef.ViewMode = OverlayModes.LiquidConduits.ID;
         buildingDef.AudioCategory = "Metal";
         buildingDef.UtilityInputOffset = new CellOffset(0, 0);
         return buildingDef;

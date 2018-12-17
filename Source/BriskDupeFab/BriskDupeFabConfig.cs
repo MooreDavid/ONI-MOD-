@@ -21,7 +21,7 @@ public class BriskDupeFabConfig : IBuildingConfig
         BuildLocationRule build_location_rule = BuildLocationRule.OnFloor;
         EffectorValues tieR0 = NOISE_POLLUTION.NOISY.TIER0;
         BuildingDef buildingDef = BuildingTemplates.CreateBuildingDef(id, width, height, anim, hitpoints, construction_time, tieR4, rawMetals, melting_point, build_location_rule, TUNING.BUILDINGS.DECOR.BONUS.TIER1, tieR0, 0.2f);
-        buildingDef.ViewMode = SimViewMode.LiquidVentMap;
+        buildingDef.ViewMode = OverlayModes.LiquidConduits.ID;
         buildingDef.AudioCategory = "Metal";
         buildingDef.UtilityInputOffset = new CellOffset(0, 0);
         return buildingDef;
@@ -32,8 +32,8 @@ public class BriskDupeFabConfig : IBuildingConfig
     go.AddOrGet<DropAllWorkable>();
     Prioritizable.AddRef(go);
     go.AddOrGet<BuildingComplete>().isManuallyOperated = false;
-    Fabricator fabricator = go.AddOrGet<Fabricator>();
-    BuildingTemplates.CreateFabricatorStorage(go, fabricator);
+    ComplexFabricator cf = go.AddOrGet<ComplexFabricator>();
+    BuildingTemplates.CreateComplexFabricatorStorage(go, cf);
 
 
 

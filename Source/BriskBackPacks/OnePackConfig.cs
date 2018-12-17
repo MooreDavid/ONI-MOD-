@@ -33,7 +33,7 @@ public class OnePackConfig : IEquipmentConfig
          new AttributeModifier(Db.Get().Attributes.Athletics.Id, (float) CarryAmount, (string) ID, false, false, true),
          new AttributeModifier(Db.Get().Amounts.Breath.maxAttribute.Id, (float) CarryAmount, (string) ID, false, false, true),
         };
-        EquipmentDef equipmentDef1 = EquipmentTemplates.CreateEquipmentDef("OnePack", TUNING.EQUIPMENT.TOOLS.TOOLSLOT, TUNING.EQUIPMENT.VESTS.FABRICATOR, TUNING.EQUIPMENT.VESTS.FUNKY_VEST_FABTIME, SimHashes.Carbon, InputElementMassMap, (float)TUNING.EQUIPMENT.VESTS.FUNKY_VEST_MASS, "vacillator_charge_kanim", (string)null, "body_water_slow_kanim", 4, AttributeModifiers, (string)null, true, EntityTemplates.CollisionShape.RECTANGLE, 0.75f, 0.4f, (Tag[])null);
+        EquipmentDef equipmentDef1 = EquipmentTemplates.CreateEquipmentDef("OnePack", TUNING.EQUIPMENT.TOOLS.TOOLSLOT, SimHashes.Carbon, (float)TUNING.EQUIPMENT.VESTS.FUNKY_VEST_MASS, "vacillator_charge_kanim", (string)null, "body_water_slow_kanim", 4, AttributeModifiers, (string)null, true, EntityTemplates.CollisionShape.RECTANGLE, 0.75f, 0.4f, (Tag[])null);
         equipmentDef1.OnEquipCallBack = (System.Action<Equippable>)(eq => CoolVestConfig.OnEquipVest(eq, clothingInfo));
         equipmentDef1.RecipeDescription = Recipe_Desc;
 
